@@ -6,10 +6,8 @@ class MailService:
 
     def send_email():
         pass
-    
-    # def 
 
-
+    # def
 
 
 mail_service = MailService()
