@@ -1,0 +1,29 @@
+services:
+  database:
+    image: postgres
+    restart: unless-stopped # restart the container unless it was explicitly stopped (Development)
+    shm_size: 128mb # Shared memory size
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: db
+    ports:
+      - "5433:5432"
+
+    logging:
+      driver: "json-file" # Stores logs in JSON format in host system
+      options:
+        max-size: "10m" # Maximum size of log file
+        max-file: "3" # Maximum number of log files
+
+  smtp4dev:
+    image: rnwood/smtp4dev
+    ports:
+      - "3000:80"
+      - "2525:25"
+
+
+volumes:
+  postgres_data:

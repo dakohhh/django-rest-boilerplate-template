@@ -10,7 +10,7 @@ ALLOWED_HOSTS = env.list("ALLOWED_HOST", default=[])
 
 DATABASES = {
     "default": dj_database_url.parse(
-        "postgresql://postgres:wisdom@localhost:5432/django-template", conn_max_age=600, conn_health_checks=True
+        env.str('DATABASE_URL'), conn_max_age=600, conn_health_checks=True
     )
 }
 

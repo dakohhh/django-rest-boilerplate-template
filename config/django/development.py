@@ -9,7 +9,7 @@ ALLOWED_HOSTS = ["*"]
 # Database
 DATABASES = {
     "default": dj_database_url.parse(
-        "postgresql://postgres:wisdom@localhost:5432/django-template", conn_max_age=600, conn_health_checks=True
+        "postgresql://user:pass@localhost:5433/db", conn_max_age=600, conn_health_checks=True
     )
 }
 

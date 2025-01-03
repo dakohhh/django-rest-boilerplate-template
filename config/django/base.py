@@ -25,7 +25,7 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_PARTY_APPS = ['rest_framework', 'rest_framework_simplejwt', 'rest_framework_simplejwt.token_blacklist']
+THIRD_PARTY_APPS = ['rest_framework', 'rest_framework_simplejwt', 'rest_framework_simplejwt.token_blacklist', 'mjml']
 
 SELF_APPS = ['authentication', 'user']
 
@@ -73,7 +73,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "mail/templates"), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,3 +121,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# PRECOMPILE EMAIL TEMPLATES
+MJML_BACKEND_MODE = "cmd"
+MJML_EXEC_CMD = "node_modules/.bin/mjml"
